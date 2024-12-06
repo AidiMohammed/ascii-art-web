@@ -112,20 +112,5 @@ func LoadBannerv2(banner string)(map[int][]string, error){
 		}
 
 	}
-
-	/*fmt.Println(result[33])
-	fmt.Println(result[34])*/
-	fmt.Println(len(result[33]))
-	fmt.Println(len(result[34]))
-
-	fmt.Println(" index map (33) ")
-	for index,char := range result[33]{
-		fmt.Printf("index : %v | char %v\n",index,char)
-	}
-
-	fmt.Println(" index map (34) ")
-	for index,char := range result[34]{
-		fmt.Printf("index : %v | char %v\n",index,char)
-	}
 	return result,err
 }
