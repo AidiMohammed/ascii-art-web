@@ -14,7 +14,7 @@ func AsciArt(inputUser string, banner string) string{
 
 	strToReuns := []rune(inputUser)
 
-	myResultAscii ,_:= LoadBannerv2(banner)
+	myResultAscii ,_:= LoadBanner(banner)
 
 	for i := 0 ; i < 8; i++ {
 		for index = 0; index < len(strToReuns); index++{
@@ -38,44 +38,7 @@ func CheckNameBanner(inputBanner string) bool {
 	return false
 }
 
-func LoadBanner(banner string) (map[int]string, error){
-	result := make(map[int]string)
-	var tempCharAscii string
-	indexAscii := 33
-	
-	//ouvrire le ficher en lecture
-	file , err := os.Open("banners/"+banner+".txt")
-
-	if err != nil{
-		fmt.Println("Erreur lors de l'ouverteur de ficher : ",err)
-		return result, err
-	}
-	defer file.Close() //Fermer le ficher à la fine 
-
-	//créer un scanner pour lire le ficher ligne par ligne
-	scanner := bufio.NewScanner(file)
-
-	//Lire les lignes
-	for scanner.Scan() {
-		line := scanner.Text()
-		if line == "" {
-			result[indexAscii] = tempCharAscii
-			indexAscii++
-			tempCharAscii = ""
-		}
-		
-		tempCharAscii += "\n"+line 
-	}
-
-	errScanner := scanner.Err()
-	if errScanner != nil {
-		fmt.Println("Erreur lors de la lecteur du fichier ", errScanner)
-	}
-
-	return result,err
-}
-
-func LoadBannerv2(banner string)(map[int][]string, error){
+func LoadBanner(banner string)(map[int][]string, error){
 	result := make(map[int][]string)
 	indexAscii := 33
 	
