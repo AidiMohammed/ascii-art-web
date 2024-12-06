@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	  <meta charset="UTF-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		{{ if .Style }}
+		<link rel="stylesheet" href="/css/style.css">
+		{{ end }}
+	  <title>Ascii Art Web</title>  
+	</head>
+	<body>
+		<div class="container">
+
+			<h1 style="text-align: center;">{{ .TitlePage }}</h1>
+
+			<div class="box-form">
+				<!-- Start form -->
+				<form action="/ascii-art" method="post">
+					<div style="display: grid;">
+						<label for="choice-banners" class="form-label" >Choice style</label>
+						<div class="radio-buttons" role="group" aria-label="Basic radio toggle button group">
+							<input type="radio" name="banner" id="standard" value="standard" autocomplete="off" checked="">
+							<label for="standard">Standard</label>
+
+							<input type="radio" name="banner" id="shadow" value="shadow" autocomplete="off" >
+							<label for="shadow">Shadow</label>
+
+							<input type="radio" name="banner" id="thinkertoy" value="thinkertoy" autocomplete="off">
+							<label for="thinkertoy">Thinkertoy</label>
+						</div>
+					</div>
+
+					<div class="input-user">
+						<label for="exampleTextarea" >Eenter your text</label>
+						<textarea required id="textarea" name="textarea" rows="8"></textarea>
+					</div>
+					<div class="btns-form">
+						<button id="btn-submit" type="submit" >Submit</button>
+						<button id="btn-clean" type="button" style="display: none;">Clean text</button>
+					</div>
+
+				</form>
+				<!-- End form-->
+			</div>
+
+			<!-- Start alert-->
+			<div id="alert-box" {{ if .Error }} style="display: block;" {{ else }} style="display: none" {{ end }}>
+				<button type="button" data-bs-dismiss="alert"></button>
+				<h4 >Warning!</h4>
+				<p id="alert-message" >{{if .Error }} {{ .Error }} {{ .Error }} {{ end }}</p>
+			</div>
+			<!-- End alert-->
+
+		</div>
+	  <script src="/js/index.js"></script>
+	</body>
+</html>

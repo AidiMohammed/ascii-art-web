@@ -1,0 +1,120 @@
+/* Rest des marges, des paddings et des bordures*/
+* {
+    margin: O;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1,6;
+    background-color: #002b37;
+    color: #aba9a9;
+}
+
+.box-form{
+    background-color: #093642;
+    border-radius: 10px;
+    padding: 10px 20px;
+    
+}
+
+.container {
+    max-width : 100%; /*Permet au contenur d'occuper toute la largure */
+    padding: 2rem; /* Ajouter un espacment intérieur */
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
+.form-label{
+    margin-bottom: 15px;
+}
+
+.radio-buttons{
+    position: relative;
+    display: inline-flex;
+    vertical-align: middle;
+}
+
+.radio-buttons input[type="radio"]{
+    display: none; /*Cacher les vrais boutons radio*/
+}
+
+.radio-buttons label {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid #b58900;
+    /*border-radius: 5px;*/
+    background-color: transparent;
+    color: #b58900;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3 ease;
+    
+}
+
+.radio-buttons input[type="radio"]:checked + label{
+    background-color: #b58900;
+    color: #002b37;
+    background-color: #b58900;
+    position: relative;
+    flex: 1 1 auto;
+}
+
+.input-user{
+    display: flex;
+    flex-direction: column;
+    justify-self: space-around;
+    align-items: stretch;
+}
+
+.input-user textarea {
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    max-height: 300px;
+    min-height: 100px;
+    resize: vertical;
+}
+
+.input-user label {
+    margin: 15px 0;
+}
+
+.btns-form{
+    margin: 25px 0px ;
+    display: flex;
+    gap: 10px;
+}
+
+.btns-form button{
+    padding: 8px 10px;
+    border: none;
+    border-radius: 3px;
+    color: #fff;
+}
+
+.box-form button[type="submit"] { 
+    background-color: #b58900;
+}
+
+.box-form button[type="button"]{
+    background-color: rgb(250, 64, 64);
+
+
+}
+
+.box-form > div:first-of-type {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.btn-link {
+    text-decoration: none;
+    color: white;
+    background-color: #b58900;
+    padding: 10px 6px;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+
