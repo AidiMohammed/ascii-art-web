@@ -17,8 +17,20 @@ type data struct{
 	Style bool
 }
 
-func FormAsciiArt(w http.ResponseWriter, r *http.Request){
+func modeRun ()bool{
 	withStyle := false
+
+	if len(os.Args) == 2 {
+		if os.Args[1] == "--with-style" || os.Args[1] == "-ws"{
+			withStyle = true
+		}
+	}
+
+	return withStyle
+}
+
+func FormAsciiArt(w http.ResponseWriter, r *http.Request){
+	withStyle := modeRun()
 
 	if len(os.Args) == 2 {
 		if os.Args[1] == "--with-style" || os.Args[1] == "-ws" {
@@ -45,19 +57,13 @@ func FormAsciiArt(w http.ResponseWriter, r *http.Request){
 	}
 }
 
+
+
 func GenerateAsciiArt(w http.ResponseWriter, r *http.Request){
 
 	if r.Method == "POST" {
 
-		// /!\ ---------------- créer une fonction pour ce code 
-		withStyle := false
-
-		if len(os.Args) == 2 {
-			if os.Args[1] == "--with-style" || os.Args[1] == "-ws" {
-				withStyle = true
-			}
-		}
-		//--------------
+		withStyle := modeRun()
 
 		r.ParseForm()
 		banner := r.FormValue("banner")

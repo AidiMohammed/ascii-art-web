@@ -18,7 +18,18 @@ func AsciArt(inputUser string, banner string) string{
 
 	for i := 0 ; i < 8; i++ {
 		for index = 0; index < len(strToReuns); index++{
-			valueRuturn += myResultAscii[int(strToReuns[index]+1)][i] 
+			_, ok := myResultAscii[int(strToReuns[index])]
+			if ok {
+				valueRuturn += myResultAscii[int(strToReuns[index])][i] 
+			} else {
+				if string(strToReuns[index]) == "\n"{
+					fmt.Println("le retour à la ligne pas encore traiter")
+					valueRuturn += "\n"
+				} else {
+					fmt.Println("la clé "+string(strToReuns[index])+" n'existe pas")
+					valueRuturn += myResultAscii[32][index]
+				}
+			}
 		}
 		valueRuturn += "\n"
 	}
@@ -40,7 +51,7 @@ func CheckNameBanner(inputBanner string) bool {
 
 func LoadBanner(banner string)(map[int][]string, error){
 	result := make(map[int][]string)
-	indexAscii := 33
+	indexAscii := 32
 	
 	file, err := os.Open("banners/"+banner+".txt")
 
