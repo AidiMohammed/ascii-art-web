@@ -27,7 +27,7 @@ func AsciArt(inputUser string, banner string) string{
 					valueRuturn += "\n"
 				} else {
 					fmt.Println("la clé "+string(strToReuns[index])+" n'existe pas")
-					valueRuturn += myResultAscii[32][index]
+					valueRuturn += myResultAscii[32][i]
 				}
 			}
 		}

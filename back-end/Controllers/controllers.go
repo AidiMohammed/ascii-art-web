@@ -31,12 +31,6 @@ func modeRun ()bool{
 
 func FormAsciiArt(w http.ResponseWriter, r *http.Request){
 	withStyle := modeRun()
-
-	if len(os.Args) == 2 {
-		if os.Args[1] == "--with-style" || os.Args[1] == "-ws" {
-			withStyle = true
-		}
-	}
 	
 	template,err := template.ParseFiles("../front-end/template/formAsciiArt.html")
 
@@ -54,6 +48,8 @@ func FormAsciiArt(w http.ResponseWriter, r *http.Request){
 	if err != nil {
 		fmt.Println("ERR")
 		http.Error(w , err.Error(), http.StatusInternalServerError)
+	} else {
+
 	}
 }
 
@@ -93,6 +89,7 @@ func GenerateAsciiArt(w http.ResponseWriter, r *http.Request){
 				return
 			}
 			template.Execute(w,dataPage)
+			w.WriteHeader(http.StatusNotAcceptable)
 			return
 		}
 
