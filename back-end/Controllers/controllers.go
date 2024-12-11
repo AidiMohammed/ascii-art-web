@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"html/template"
 	"ascii-art-web/tols"
+	//"strings"
 )
 
 type data struct{
