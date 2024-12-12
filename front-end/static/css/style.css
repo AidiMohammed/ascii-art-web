@@ -118,3 +118,7 @@ body{
     border-radius: 5px;
 }
 
+.result-ascii{
+    overflow: auto;
+}
+

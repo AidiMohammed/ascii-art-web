@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"bufio"
 	"os"
+	"strings"
 )
 
 func AsciArt(inputUser string, banner string) string{
@@ -12,24 +13,25 @@ func AsciArt(inputUser string, banner string) string{
 	var valueRuturn string
 	var index int
 
-	strToReuns := []rune(inputUser)
+	//strToReuns := []rune(inputUser)
+	splitInputUser := strings.Split(inputUser,"\n")
 
 	myResultAscii ,_:= LoadBanner(banner)
 
-	for i := 0 ; i < 8; i++ {
-		for index = 0; index < len(strToReuns); index++{
-			_, ok := myResultAscii[int(strToReuns[index])]
-			if ok {
-				valueRuturn += myResultAscii[int(strToReuns[index])][i] 
-			} else {
-				if string(strToReuns[index]) == "\n"{
-					fmt.Println("le retour à la ligne pas encore traiter")
-					valueRuturn += "\n"
+	for _,line := range splitInputUser {
+		strToReuns := []rune(line)
+		for i := 0 ; i < 8; i++ {
+			for index = 0; index < len(strToReuns); index++{
+				_, ok := myResultAscii[int(strToReuns[index])]
+				if ok {
+					valueRuturn += myResultAscii[int(strToReuns[index])][i] 
 				} else {
 					fmt.Println("la clé "+string(strToReuns[index])+" n'existe pas")
 					valueRuturn += myResultAscii[32][i]
+					
 				}
 			}
+			valueRuturn += "\n"
 		}
 		valueRuturn += "\n"
 	}
