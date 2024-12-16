@@ -15,27 +15,19 @@
 
         <div class="box-form">
             <div>
-                <a href="/" class="btn-link" >Back to form</a>
+                <a href="/" class="btn-link" id="l" >Back to form</a>
+                <button class="btn-link" id="down">Download</button>
             </div>
-            <div style="display: grid;">
-                <label for="choice-banners" class="form-label mt-4" >Change banners</label>
-                <div class="radio-buttons" role="group" aria-label="Basic radio toggle button group">
-                    <input type="radio" class="btn-check" name="banner" id="standard" value="standard" autocomplete="off" {{ if (eq .Banner "standard") }} checked="" {{ end }}>
-                    <label class="btn btn-outline-primary" for="standard">Standard</label>
-                    <input type="radio" class="btn-check" name="banner" id="shadow" value="shadow" autocomplete="off" {{ if (eq .Banner "shadow") }} checked="" {{ end }}>
-                    <label class="btn btn-outline-primary" for="shadow">Shadow</label>
-                    <input type="radio" class="btn-check" name="banner" id="thinkertoy" value="thinkertoy" autocomplete="off" {{ if (eq .Banner "thinkertoy") }} checked="" {{ end }}>
-                    <label class="btn btn-outline-primary" for="thinkertoy">Thinkertoy</label>
-                </div>
-            </div>
-            <div id="resultArea" class="result-ascii" >
+
+            <div id="resultArea" class="py-3 px-3 my-3" >
                 <pre >
-                    <p>{{ .AsciiArt }}</p>
+                    <p id="res" style="overflow: auto;">{{ .AsciiArt }} <br></p>
                 </pre>
             </div>
         </div>
 
                 
     </div>
+    <script src="js/download.js"></script>
 </body>
 </html>

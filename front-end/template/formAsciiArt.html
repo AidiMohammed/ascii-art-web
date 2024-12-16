@@ -6,12 +6,12 @@
 		{{ if .Style }}
 		<link rel="stylesheet" href="/css/style.css">
 		{{ end }}
-	  <title>Ascii Art Web</title>  
+	  <title>{{.TitlePage}}</title>  
 	</head>
 	<body>
 		<div class="container">
 
-			<h1 style="text-align: center;">{{ .TitlePage }}</h1>
+			<h1 style="text-align: center;">{{.TitlePage}}</h1>
 
 			<div class="box-form">
 				<!-- Start form -->
@@ -32,12 +32,15 @@
 
 					<div class="input-user">
 						<label for="exampleTextarea" >Eenter your text</label>
-						<textarea required id="textarea" name="textarea" rows="8"></textarea>
+						<textarea autofocus required id="textarea" name="textarea" rows="8"></textarea>
 					</div>
 					<div class="btns-form">
 						<button id="btn-submit" type="submit" >Submit</button>
-						<button id="btn-clean" type="button" style="display: none;">Clean text</button>
+						<button id="btn-clean" type="button">Clean text</button>
+						<button id="save" type="button">Save</button>
 					</div>
+
+					<span id="saving" style="color: blanchedalmond;"></span>
 
 				</form>
 				<!-- End form-->
@@ -45,13 +48,15 @@
 
 			<!-- Start alert-->
 			<div id="alert-box" {{ if .Error }} style="display: block;" {{ else }} style="display: none" {{ end }}>
-				<button type="button" data-bs-dismiss="alert"></button>
-				<h4 >Warning!</h4>
-				<p id="alert-message" >{{if .Error }} {{ .Error }} {{ end }}</p>
+				<p>{{if .Error }} {{ .Error }} {{ end }}</p>
 			</div>
 			<!-- End alert-->
 
 		</div>
-	  <script src="/js/index.js"></script>
+		
+<script src="js/index.js"></script>
+
+		
+	  
 	</body>
 </html>
