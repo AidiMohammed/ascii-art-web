@@ -1,4 +1,4 @@
-/* Rest des marges, des paddings et des bordures*/
+/* Rest of margins, paddings and borders*/
 * {
     margin: O;
     padding: 0;
@@ -20,8 +20,8 @@ body{
 }
 
 .container {
-    max-width : 100%; /*Permet au contenur d'occuper toute la largure */
-    padding: 2rem; /* Ajouter un espacment intérieur */
+    max-width : 100%; /*Allows the content to occupy the entire width */
+    padding: 2rem; /* Add an inner spacer */
     margin-left: 150px;
     margin-right: 150px;
 }
@@ -37,14 +37,13 @@ body{
 }
 
 .radio-buttons input[type="radio"]{
-    display: none; /*Cacher les vrais boutons radio*/
+    display: none; /*Hide real radio buttons*/
 }
 
 .radio-buttons label {
     display: inline-block;
     padding: 10px 20px;
     border: 2px solid #b58900;
-    /*border-radius: 5px;*/
     background-color: transparent;
     color: #b58900;
     font-size: 16px;
@@ -118,7 +117,25 @@ body{
     border-radius: 5px;
 }
 
-.result-ascii{
-    overflow: auto;
+
+
+.box-form button[type="submit"]:hover {
+    background-color: #07ffff; 
+    cursor: pointer; 
+}
+
+.box-form button[type="button"]:hover {
+    background-color: #07ffff;
+    cursor: pointer;  
+}
+
+#down:hover {
+    background-color: #07ffff;
+    cursor: pointer;  
+}
+
+#l:hover {
+    background-color: #07ffff;
+    cursor: pointer;  
 }
 

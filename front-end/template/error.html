@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{ if .Style }}
+    <link rel="stylesheet" href="/css/style.css">
+    {{ end }}
+    <title>Error {{.CodeStatus}}</title>
+</head>
+<body>
+    <body>
+        <div class="container" >
+            <h1>Error {{.CodeStatus }}</h1>
+            <h2>{{.Message}}</h2>
+            <p>A server error has occurred. We hope to solve the problem.</p>
+            <p>Try coming back later or return to the <a style="margin-left: 11px; padding: 5px 5px" class="btn-link" href="/">Home page</a>.</p>
+        </div>
+    </body>
+</body>
+</html>
