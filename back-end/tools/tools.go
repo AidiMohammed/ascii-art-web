@@ -105,22 +105,23 @@ func LoadBanner(banner string) (map[int][]string,error) {
 
 			line := scanner.Text() // read ligne
 
-			if line == "" && !NewChar {
+			if line == "" && !NewChar{
 				NewChar = true
 				indexAscii++
 				continue
 			}
 
-			if NewChar {
-				result[indexAscii] = []string{scanner.Text()}
+			if NewChar {//create new key end value in map
+				result[indexAscii] = []string{line}
 				NewChar = false
-			} else {
-				if line != "" {
+			} else {//update key
+
 					result[indexAscii] = append(result[indexAscii], line)
-				}
+				
 			}
 
 		}
+		fmt.Println(len(result[33]))
 		return result,err		
 	}
 

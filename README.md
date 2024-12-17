@@ -51,6 +51,7 @@ go run .
 ### Error Handling
 - **404 Not Found:** Displays a custom page if the user accesses a nonexistent route.
 - **500 Internal Server Error:** Displays a page when a server-side issue occurs.
+- **405 Method not allowed:** (only post method allowed by the site).
 - **400 Bad Request:** If a user sends:
   - An empty textarea.
   - A request with an invalid or nonexistent banner name.
@@ -102,6 +103,7 @@ go run .
    - **404 Not Found** for invalid routes.
    - **500 Internal Server Error** for server issues.
    - **400 Bad Request** for invalid or improperly sent input data.
+   - **405** for method not allowed.
 
 ---
 
@@ -112,4 +114,5 @@ go run .
 3. Navigating directly to the result page URL without proper submission returns a `400 Bad Request` response.
 4. Accessing an invalid route, such as `http://localhost:8081/unknown`, shows a `404 Not Found` page.
 5. case error of server in page => `500 server error...` (but this is out frame of user).
+6. if : User has manually typed a link of result page => display error 405
 

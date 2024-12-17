@@ -88,6 +88,10 @@ func GenerateAsciiArt(w http.ResponseWriter, r *http.Request) {
 		}
 
 		dataPage.AsciiArt = tools.AsciArt(inputUser, banner)
+		if dataPage.AsciiArt == "" {
+			ErrorPage(w, http.StatusNotFound, "Page not found !")
+			return
+		}
 
 		template, err := template.ParseFiles("../front-end/template/resultAsciiArt.html")
 		if err != nil {
@@ -95,10 +99,6 @@ func GenerateAsciiArt(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 
-		if dataPage.AsciiArt == "" {
-			ErrorPage(w, http.StatusInternalServerError, "server intrernal error !")
-			return
-		}
 		err = template.Execute(w, dataPage)
 		if err != nil {
 
