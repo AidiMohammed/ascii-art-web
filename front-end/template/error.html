@@ -13,8 +13,10 @@
         <div class="container" >
             <h1>Error {{.CodeStatus }}</h1>
             <h2>{{.Message}}</h2>
-            <p>A server error has occurred. We hope to solve the problem.</p>
-            <p>Try coming back later or return to the <a style="margin-left: 11px; padding: 5px 5px" class="btn-link" href="/">Home page</a>.</p>
+            {{ if eq .CodeStatus 500 }}
+            <p>A server error has occurred. We hope to solve the problem.  <br>Try coming back later or </p>
+            {{ end }}
+            <p>return to the <a style="margin-left: 11px; padding: 5px 5px" class="btn-link" href="/">Home page</a>.</p>
         </div>
     </body>
 </body>

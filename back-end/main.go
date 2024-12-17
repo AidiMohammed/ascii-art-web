@@ -9,7 +9,7 @@ import (
 
 func main() {
 	
-	http.HandleFunc("/", controllers.FormAsciiArt)
+	http.HandleFunc("/", controllers.FormAsciiArt)//GET
 	http.HandleFunc("/ascii-art", controllers.GenerateAsciiArt)
 
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("../front-end/static/css"))))
